@@ -4,8 +4,7 @@ import { createAnimationUpdater } from './animation';
 import * as THREE from 'three';
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
-import * as CANNON from 'cannon';
+
 import {
   ground, boxes
 
@@ -36,7 +35,7 @@ controls.addEventListener("change", () => {
 })
 import { loadGLB } from './handleGLB';
 
-import { input } from './InputManager';
+// import { input } from './InputManager';
 import { updateMovement } from './calcDirection';
 
 const player = await loadGLB('ShinChan.glb').then((model) => {

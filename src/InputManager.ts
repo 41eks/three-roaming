@@ -10,7 +10,7 @@ export class InputManager {
         window.addEventListener('keyup', (e) => this.keys.delete(e.code));
     }
 
-    isPressed = (code) => {
+    isPressed = (code:Key) => {
         return this.keys.has(code);
     }
 }
@@ -18,3 +18,5 @@ export class InputManager {
 
 
 export const input = new InputManager();
+
+export type Key = 'KeyW' | 'KeyA' | 'KeyS' | 'KeyD' | 'ShiftLeft';

@@ -10,14 +10,14 @@ export default class ModelAnimation {
     private animations: AnimationClip[];
     private actionObj: Record<string, AnimationAction>;
     private currentAct: AnimationAction | null; // 修正了拼写 currnet -> current
-    private previousAct: AnimationAction | null;
+    // private previousAct: AnimationAction | null;
 
     constructor(model: Group) {
         this.mixer = new AnimationMixer(model);
         this.animations = model.animations;
         this.actionObj = {};
         this.currentAct = null;
-        this.previousAct = null;
+        // this.previousAct = null;
 
         // 初始化动作对象
         this.animations.forEach((clip: AnimationClip) => {
@@ -68,14 +68,14 @@ export default class ModelAnimation {
     }
 }
 
-
+import type { Key } from "./InputManager";
 import * as THREE from 'three';
 export function createAnimationUpdater(model: THREE.Group) {
 
     const modelAnimathion = new ModelAnimation(model);
     modelAnimathion.start('idle');
     function updateAnimation() {
-        const isMoving = ['KeyW', 'KeyA', 'KeyS', 'KeyD'].some(code => input.isPressed(code));
+        const isMoving = (['KeyW', 'KeyA', 'KeyS', 'KeyD'] as Key[]).some((code: Key) => input.isPressed(code));
         const isShift = input.isPressed('ShiftLeft');
 
         let targetState = 'idle';
